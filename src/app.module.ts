@@ -10,10 +10,10 @@ import { join } from 'path';
 
 @Module({
   imports: [MongooseModule.forRoot(MONGODB_URL), 
-    MongooseModule.forFeature([{ name: 'Todo', schema:todoSchema }]),
-    ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'dist/simple-todo-app'),
-    }),
+    MongooseModule.forFeature([{ name: 'Todo', schema:todoSchema }])
+    /*ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', '/simple-todo-app'),
+    }),*/
   ],
   controllers: [AppController],
   providers: [AppService],

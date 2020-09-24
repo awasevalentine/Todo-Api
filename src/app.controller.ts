@@ -25,11 +25,11 @@ export class AppController {
     return res.json(todoById, 200);
   }
 
-  @Get()
+  /*@Get()
   root(@Res() response): void {
     // the homepage will load our index.html which contains angular logic
     response.sendFile(path.resolve('./dist/simple-todo-app/index.html'));
-  }
+  }*/
 
   @Post('/createTodo')
   async createTodo(@Body() todoDto: TodoDto, @Res() res): Promise<TodoItems> {

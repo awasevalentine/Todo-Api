@@ -16,7 +16,6 @@ exports.AppController = void 0;
 const common_1 = require("@nestjs/common");
 const app_service_1 = require("./app.service");
 const todo_Dto_1 = require("./Models/Dto/todo.Dto");
-const path_1 = require("path");
 let AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
@@ -31,9 +30,6 @@ let AppController = class AppController {
             throw new common_1.NotFoundException(`Todo with id = ${id} not found! `);
         }
         return res.json(todoById, 200);
-    }
-    root(response) {
-        response.sendFile(path_1.default.resolve('./dist/simple-todo-app/index.html'));
     }
     async createTodo(todoDto, res) {
         await this.appService.createTodo(todoDto);
@@ -68,13 +64,6 @@ __decorate([
     __metadata("design:paramtypes", [Object, String]),
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "getTodoById", null);
-__decorate([
-    common_1.Get(),
-    __param(0, common_1.Res()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
-], AppController.prototype, "root", null);
 __decorate([
     common_1.Post('/createTodo'),
     __param(0, common_1.Body()), __param(1, common_1.Res()),

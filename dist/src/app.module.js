@@ -11,19 +11,14 @@ const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const mongoose_1 = require("@nestjs/mongoose");
-const serve_static_1 = require("@nestjs/serve-static");
 const secretKeys_1 = require("../secretKeys");
 const todo_schema_1 = require("./Models/Schema/todo.schema");
-const path_1 = require("path");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     common_1.Module({
         imports: [mongoose_1.MongooseModule.forRoot(secretKeys_1.MONGODB_URL),
-            mongoose_1.MongooseModule.forFeature([{ name: 'Todo', schema: todo_schema_1.todoSchema }]),
-            serve_static_1.ServeStaticModule.forRoot({
-                rootPath: path_1.join(__dirname, '..', 'dist/simple-todo-app'),
-            }),
+            mongoose_1.MongooseModule.forFeature([{ name: 'Todo', schema: todo_schema_1.todoSchema }])
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
