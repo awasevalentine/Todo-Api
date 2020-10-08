@@ -30,6 +30,9 @@ let AppService = class AppService {
     async getTodoById(todoId) {
         return await this.todoModel.findById({ _id: todoId });
     }
+    async getTodoByUserId(userId) {
+        return await this.todoModel.find({ userId: userId });
+    }
     async updateTodo(todoId, todoDto) {
         return await this.todoModel.findByIdAndUpdate({ _id: todoId }, todoDto);
     }

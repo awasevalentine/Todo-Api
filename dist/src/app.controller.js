@@ -31,6 +31,13 @@ let AppController = class AppController {
         }
         return res.json(todoById, 200);
     }
+    async getTodoByUserId(res, id) {
+        const todoById = await this.appService.getTodoByUserId(id);
+        if (!todoById) {
+            throw new common_1.NotFoundException(`Todo with id = ${id} not found! `);
+        }
+        return res.json(todoById, 200);
+    }
     async createTodo(todoDto, res) {
         await this.appService.createTodo(todoDto);
         return res.json(`'Todo was successfully created!`, 200);
@@ -64,6 +71,13 @@ __decorate([
     __metadata("design:paramtypes", [Object, String]),
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "getTodoById", null);
+__decorate([
+    common_1.Get('/getTodo/:id'),
+    __param(0, common_1.Res()), __param(1, common_1.Query('userId')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, String]),
+    __metadata("design:returntype", Promise)
+], AppController.prototype, "getTodoByUserId", null);
 __decorate([
     common_1.Post('/createTodo'),
     __param(0, common_1.Body()), __param(1, common_1.Res()),

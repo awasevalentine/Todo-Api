@@ -6,4 +6,5 @@ export interface TodoItems extends Document {
     readonly dueDate: Date;
     readonly important?: boolean;
     readonly status?: boolean;
+    readonly userId: string;
 }

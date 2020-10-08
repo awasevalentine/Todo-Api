@@ -9,16 +9,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
+const auth_module_1 = require("./Auth/auth/auth.module");
+const config_1 = require("@nestjs/config");
 const app_service_1 = require("./app.service");
 const mongoose_1 = require("@nestjs/mongoose");
-const secretKeys_1 = require("../secretKeys");
 const todo_schema_1 = require("./Models/Schema/todo.schema");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     common_1.Module({
-        imports: [mongoose_1.MongooseModule.forRoot(secretKeys_1.MONGODB_URL),
-            mongoose_1.MongooseModule.forFeature([{ name: 'Todo', schema: todo_schema_1.todoSchema }])
+        imports: [
+            auth_module_1.AuthModule,
+            config_1.ConfigModule.forRoot(),
+            mongoose_1.MongooseModule.forRoot(process.env.MONGODB_URL),
+            mongoose_1.MongooseModule.forFeature([{ name: 'Todo', schema: todo_schema_1.todoSchema }]),
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

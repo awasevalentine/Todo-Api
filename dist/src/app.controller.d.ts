@@ -6,6 +6,7 @@ export declare class AppController {
     constructor(appService: AppService);
     getAllTodos(res: any): Promise<TodoItems[]>;
     getTodoById(res: any, id: string): Promise<TodoItems>;
+    getTodoByUserId(res: any, id: string): Promise<TodoItems>;
     createTodo(todoDto: TodoDto, res: any): Promise<TodoItems>;
     updateTodoById(res: any, id: string, todoDto: TodoDto): Promise<TodoItems>;
     deleteTodoById(res: any, id: string): Promise<TodoItems>;

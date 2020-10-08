@@ -36,3 +36,5 @@ lerna-debug.log*
 # user configuration
 secretKeys
 /secretKeys
+.env
+/env

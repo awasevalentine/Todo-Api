@@ -7,6 +7,7 @@ export declare class AppService {
     createTodo(todo: TodoDto): Promise<TodoItems>;
     getTodos(): Promise<TodoItems[]>;
     getTodoById(todoId: string): Promise<TodoItems>;
+    getTodoByUserId(userId: string): Promise<TodoItems[]>;
     updateTodo(todoId: string, todoDto: TodoDto): Promise<TodoItems>;
     deleteTodo(todoId: string): Promise<TodoItems>;
 }

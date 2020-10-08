@@ -1,21 +1,19 @@
 import { Injectable } from '@nestjs/common';
-import { TodoItems } from './Models/Interface/todo.interface';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { TodoDto } from './Models/Dto/todo.Dto';
-import { UserDocument } from './Models/Interface/user.interface';
+import { UserDocument } from 'src/Models/Interface/user.interface';
 
 @Injectable()
-export class AppService {
+export class UserService {
 
-  constructor(@InjectModel('Todo')private readonly todoModel: Model<TodoItems>) { }
+  constructor(@InjectModel('User') private readonly userModel: Model<UserDocument>){}
 
-  async createTodo(todo: TodoDto): Promise<TodoItems> {
-
-    const addTodo = await new this.todoModel(todo);
-    return addTodo.save();
+  async createUser(user: UserDocument): Promise<UserDocument> {
+    const newuser = await this.userModel.create(user);
+    return newuser;
   }
 
+  /*
   async getTodos(): Promise<TodoItems[]> {
     
     return await this.todoModel.find().exec();
@@ -25,10 +23,6 @@ export class AppService {
     return await this.todoModel.findById({_id:todoId});
   }
 
-  async getTodoByUserId(userId: string): Promise<TodoItems[]> {
-    return await this.todoModel.find({ userId: userId });
-  }
-
   async updateTodo(todoId:string, todoDto: TodoDto): Promise<TodoItems> {
     return await this.todoModel.findByIdAndUpdate({_id: todoId}, todoDto);
   }
@@ -36,4 +30,5 @@ export class AppService {
   async deleteTodo(todoId: string): Promise<TodoItems> {
     return await this.todoModel.findByIdAndDelete({_id: todoId});
   }
+  */
 }

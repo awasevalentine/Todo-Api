@@ -5,4 +5,5 @@ export class TodoDto {
     dueDate: Date;
     status: boolean;
     important: boolean;
+    userId: string;
 }

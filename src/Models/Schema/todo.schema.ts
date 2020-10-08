@@ -23,5 +23,10 @@ export const todoSchema = new mongoose.Schema({
     },
     status: {
         type: Boolean
-    }
+    }/*,
+    userId: {
+        type: String,
+        required:true
+    }*/
+
 })

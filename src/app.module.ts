@@ -1,19 +1,23 @@
 
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
+import { AuthModule } from './Auth/auth/auth.module';
+import { ConfigModule } from '@nestjs/config';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
-import { ServeStaticModule } from '@nestjs/serve-static';
-import { MONGODB_URL } from 'secretKeys';
 import { todoSchema } from './Models/Schema/todo.schema';
-import { join } from 'path';
+
+
 
 @Module({
-  imports: [MongooseModule.forRoot(MONGODB_URL), 
-    MongooseModule.forFeature([{ name: 'Todo', schema:todoSchema }])
-    /*ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', '/simple-todo-app'),
-    }),*/
+  imports: [
+    AuthModule,
+    ConfigModule.forRoot(),
+    MongooseModule.forRoot(process.env.MONGODB_URL), 
+    MongooseModule.forFeature([{ name: 'Todo', schema:todoSchema }]),
+
+    
+ 
   ],
   controllers: [AppController],
   providers: [AppService],
