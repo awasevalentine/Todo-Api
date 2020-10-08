@@ -14,7 +14,7 @@ import { join } from 'path';
 @Module({
   imports: [
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'front'),
+      rootPath: join(__dirname, '..', 'front/dist/simple-todo-app'),
     }),
     AuthModule,
     ConfigModule.forRoot(),
