@@ -1501,13 +1501,8 @@
         "signature": "6d8c96d06e0ba618805678008ddd26272a43eb1595b381b8388c87a88973d7ab",
         "affectsGlobalScope": false
       },
-      "../src/Models/Interface/user.interface.ts": {
-        "version": "d9bf4ffa02adf0ca103a97209414a9d1e3f76f9058e97ad1a7dd8c819d9967ba",
-        "signature": "82f69775955fc2840b988cc27f2124a086780ec76a44f076bea7d202a084238b",
-        "affectsGlobalScope": false
-      },
       "../src/app.service.ts": {
-        "version": "77760305cefe4b143a90167d0b2e943cbc766ca47e0a65eb9e5ae5c5252045ae",
+        "version": "fac9c984435c1af7d88ceea4d5fb4d34c0b795537dd75e29ad07704ded37b9ef",
         "signature": "da659fda3099dacf2a9a912420b71258f0fa62c467bfe89dd4a36cb04725d99b",
         "affectsGlobalScope": false
       },
@@ -2339,6 +2334,11 @@
       "../node_modules/@types/bcrypt/index.d.ts": {
         "version": "18b9a9702d2fc7d3766b0c8124133c761ad25a9d767925005777eb2c2cd8aeba",
         "signature": "18b9a9702d2fc7d3766b0c8124133c761ad25a9d767925005777eb2c2cd8aeba",
+        "affectsGlobalScope": false
+      },
+      "../src/Models/Interface/user.interface.ts": {
+        "version": "d9bf4ffa02adf0ca103a97209414a9d1e3f76f9058e97ad1a7dd8c819d9967ba",
+        "signature": "82f69775955fc2840b988cc27f2124a086780ec76a44f076bea7d202a084238b",
         "affectsGlobalScope": false
       },
       "../src/Auth/auth/auth.service.ts": {
@@ -4758,8 +4758,7 @@
         "../node_modules/@nestjs/mongoose/index.d.ts",
         "../node_modules/@types/mongoose/index.d.ts",
         "../src/Models/Dto/todo.Dto.ts",
-        "../src/Models/Interface/todo.interface.ts",
-        "../src/Models/Interface/user.interface.ts"
+        "../src/Models/Interface/todo.interface.ts"
       ],
       "../src/main.ts": [
         "../node_modules/@nestjs/core/index.d.ts",
