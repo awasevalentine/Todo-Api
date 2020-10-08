@@ -6,11 +6,16 @@ import { ConfigModule } from '@nestjs/config';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { todoSchema } from './Models/Schema/todo.schema';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 
 
 @Module({
   imports: [
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'front'),
+    }),
     AuthModule,
     ConfigModule.forRoot(),
     MongooseModule.forRoot(process.env.MONGODB_URL), 
