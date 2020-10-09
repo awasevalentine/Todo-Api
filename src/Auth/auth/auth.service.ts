@@ -10,12 +10,11 @@ import { UserDocument } from 'src/Models/Interface/user.interface';
 @Injectable()
 export class AuthService {
   constructor(@InjectModel('User') private userModel: Model<UserDocument>,
-    private jwtService: JwtService) {
+    private jwtService: JwtService) { }
     
-  }
+  
 
   async createUser(userDto: UserDto): Promise<any> {
-    console.log('data: ', userDto);
     const { userName, email, passwordHash } = userDto;
 
     const hashedPassword = await bcrypt.hash(passwordHash, 10);
@@ -25,13 +24,17 @@ export class AuthService {
     return await user.save();
   }
 
+
+
   async signIn(user: UserDocument) {
-    const payload = { email: user.email, sub: user._id, userName: user.userName};
+    const payload = { email: user.email, _id: user._id, userName: user.userName};
     return {
       accessToken: this.jwtService.sign(payload)
     };
      
   }
+
+
 
   async validateUser(username: string, pass: string): Promise<UserDocument> {
     const user = await this.userModel.findOne({ email: username });
@@ -47,5 +50,16 @@ export class AuthService {
     }
 
     return null;
+  }
+
+
+  
+
+  async getUserId(id: string): Promise<any> {
+    const user = await this.userModel.findById({ _id: id });
+    if (!user) {
+      return `user not found by Id -> ${id}`;
+    }
+    return user;
   }
 }

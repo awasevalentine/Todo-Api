@@ -15,23 +15,31 @@ export class AppService {
     return addTodo.save();
   }
 
+
   async getTodos(): Promise<TodoItems[]> {
     
     return await this.todoModel.find().exec();
   }
 
+
+
   async getTodoById(todoId: string): Promise<TodoItems> {
     return await this.todoModel.findById({_id:todoId});
   }
 
-  async getTodoByUserId(userId: string): Promise<TodoItems[]> {
-    return await this.todoModel.find({ userId: userId });
+  async getTodoByUserId(id: string): Promise<TodoItems[]> {
+    const user = await this.todoModel.find({ userId: id });
+    return user;
   }
+
+
 
   async updateTodo(todoId:string, todoDto: TodoDto): Promise<TodoItems> {
     return await this.todoModel.findByIdAndUpdate({_id: todoId}, todoDto);
   }
+  
 
+  
   async deleteTodo(todoId: string): Promise<TodoItems> {
     return await this.todoModel.findByIdAndDelete({_id: todoId});
   }

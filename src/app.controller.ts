@@ -15,6 +15,16 @@ export class AppController {
     return res.json(data, 200);
   }
 
+
+  @Get('/userId/:id')
+  async  getTodosByUserId(@Res() res, @Param('id') id: string): Promise<TodoItems> {
+    const todoById = await this.appService.getTodoByUserId(id);
+    if(!todoById) {
+      throw new NotFoundException(`Todo with id = ${id} not found! `);
+    }
+    return res.json(todoById, 200);
+  }
+
   @Get('/getTodo/:id')
 
   async getTodoById(@Res() res, @Query('id') id: string): Promise<TodoItems> {
@@ -24,26 +34,13 @@ export class AppController {
     }
     return res.json(todoById, 200);
   }
-  @Get('/getTodo/:id')
 
-  async getTodoByUserId(@Res() res, @Query('userId') id: string): Promise<TodoItems> {
-    const todoById = await this.appService.getTodoByUserId(id);
-    if(!todoById) {
-      throw new NotFoundException(`Todo with id = ${id} not found! `);
-    }
-    return res.json(todoById, 200);
-  }
 
-  /*@Get()
-  root(@Res() response): void {
-    // the homepage will load our index.html which contains angular logic
-    response.sendFile(path.resolve('./dist/simple-todo-app/index.html'));
-  }*/
 
   @Post('/createTodo')
-  async createTodo(@Body() todoDto: TodoDto, @Res() res): Promise<TodoItems> {
-    /*if (!todoDto.userId)
-      return res.json('please specify a user id for this todo', 400);*/
+  async createTodo(@Body() todoDto: TodoDto, @Res() res): Promise<TodoItems[]> {
+    if (!todoDto.userId)
+      return res.json('please specify a user id for this todo', 400);
     await this.appService.createTodo(todoDto);
     return res.json(`'Todo was successfully created!`, 200);
   }
