@@ -1,5 +1,5 @@
 
-import { Module } from '@nestjs/common';
+import { CacheInterceptor, CacheModule, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AuthModule } from './Auth/auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
@@ -8,6 +8,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { todoSchema } from './Models/Schema/todo.schema';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { APP_INTERCEPTOR } from '@nestjs/core';
 
 
 
@@ -18,6 +19,7 @@ import { join } from 'path';
     }),
     AuthModule,
     ConfigModule.forRoot(),
+    CacheModule.register(),
     MongooseModule.forRoot(process.env.MONGODB_URL), 
     MongooseModule.forFeature([{ name: 'Todo', schema:todoSchema }]),
 
@@ -25,6 +27,10 @@ import { join } from 'path';
  
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService,
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: CacheInterceptor,
+    },],
 })
 export class AppModule {}

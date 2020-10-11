@@ -1502,12 +1502,12 @@
         "affectsGlobalScope": false
       },
       "../src/app.service.ts": {
-        "version": "b1a4f3080ff5db718c6d9d629e8aa09bb95d1aa458763a218a3a58d3ac8cb552",
-        "signature": "11a352c8c1a08c9067fbc10a6931a465d3e4b64a3fdcef49329acd2a6dd8d09a",
+        "version": "20d14f90821907aa195b2ce150216b79b0467bdef0ddfb0b7d220332de98d188",
+        "signature": "061fff0ef0483c2cd8f5fda6526e1326441d6e3705b35141a8b1459c21a07324",
         "affectsGlobalScope": false
       },
       "../src/app.controller.ts": {
-        "version": "1dc085126a7e2a4655064ec625368a70d848e2f0fbca16f58cdde7e23f57ca4c",
+        "version": "64617f0d5bbd9d0b592d3b6f02a8f0f536cebbdf5c3ef943e1af1703c92f98f2",
         "signature": "cd69eb282247b5409104ca008275d801ed4757470d8fa43c289ef5c9c6792bb1",
         "affectsGlobalScope": false
       },
@@ -2342,12 +2342,12 @@
         "affectsGlobalScope": false
       },
       "../src/Auth/auth/auth.service.ts": {
-        "version": "0cb6bebb66b0dcf0092e4fb21787977b1ce4520bd3bfd7a28621703627734285",
+        "version": "5210eda96eb07b5f5d4b5f980ab71dd179a3326f1e5532121bbb3eeeb8281da9",
         "signature": "211ee96ccac28313c933d0aca7b6a55a56799049893e1cd9b92a898f73df62b0",
         "affectsGlobalScope": false
       },
       "../src/Auth/auth/auth.controller.ts": {
-        "version": "9df33ac82ddca0289312e0076c865c55092ac0296334b6f5121d4b8115b74795",
+        "version": "5e4466c467f131cea1d8b5031d698b718a512e6734fa368460228708874d13e2",
         "signature": "cdd9c878dfa9b492f9438300c30e57eb75410b288e8144772e6a74cb8b683f6a",
         "affectsGlobalScope": false
       },
@@ -2617,12 +2617,12 @@
         "affectsGlobalScope": false
       },
       "../src/app.module.ts": {
-        "version": "a27eb11fb9e9cbe1c74e0fcb8a85501109855e3ff16251268e1b2b402dfe511a",
+        "version": "452a9a14b8f95bc3edcdf807128ddad2f97df58885e40ef0f07d057375f08d24",
         "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644",
         "affectsGlobalScope": false
       },
       "../src/main.ts": {
-        "version": "03c950019962323fcb8266cb2c414c19f7acc02bb408024edae8b2efe6677e06",
+        "version": "53127528ac4d87afd846cf0e6cb4dc9346aa7a8f50ad118e02502fb11a8cf450",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
         "affectsGlobalScope": false
       },
@@ -4842,6 +4842,7 @@
       "../src/app.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/config/index.d.ts",
+        "../node_modules/@nestjs/core/index.d.ts",
         "../node_modules/@nestjs/mongoose/index.d.ts",
         "../node_modules/@nestjs/serve-static/index.d.ts",
         "../node_modules/@types/node/path.d.ts",

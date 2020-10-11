@@ -27,7 +27,7 @@ export class AppController {
 
   @Get('/getTodo/:id')
 
-  async getTodoById(@Res() res, @Query('id') id: string): Promise<TodoItems> {
+  async getTodoById(@Res() res, @Param('id') id: string): Promise<TodoItems> {
     const todoById = await this.appService.getTodoById(id);
     if(!todoById) {
       throw new NotFoundException(`Todo with id = ${id} not found! `);

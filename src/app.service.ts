@@ -23,8 +23,8 @@ export class AppService {
 
 
 
-  async getTodoById(todoId: string): Promise<TodoItems> {
-    return await this.todoModel.findById({_id:todoId});
+  async getTodoById(id: string): Promise<TodoItems> {
+    return await this.todoModel.findById({_id:id});
   }
 
   async getTodoByUserId(id: string): Promise<TodoItems[]> {
