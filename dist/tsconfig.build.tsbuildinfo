@@ -1502,13 +1502,13 @@
         "affectsGlobalScope": false
       },
       "../src/app.service.ts": {
-        "version": "20d14f90821907aa195b2ce150216b79b0467bdef0ddfb0b7d220332de98d188",
+        "version": "894a03789ba95f275a71584ba5b9db15bd964fb84b7fec16c6eb2ef96f54a9be",
         "signature": "061fff0ef0483c2cd8f5fda6526e1326441d6e3705b35141a8b1459c21a07324",
         "affectsGlobalScope": false
       },
       "../src/app.controller.ts": {
-        "version": "64617f0d5bbd9d0b592d3b6f02a8f0f536cebbdf5c3ef943e1af1703c92f98f2",
-        "signature": "cd69eb282247b5409104ca008275d801ed4757470d8fa43c289ef5c9c6792bb1",
+        "version": "fa552d5874fad9e5921b77cb15082428eef35dcbcdf1d37b81a2ddb35ac1810a",
+        "signature": "b5a3852ed85eb982a44723b18f7f0b3a9073ef5f8273613b0276e75839bc11a7",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/jsonwebtoken/index.d.ts": {
@@ -2322,7 +2322,7 @@
         "affectsGlobalScope": false
       },
       "../src/Models/Dto/user.Dto.ts": {
-        "version": "a179d9ea5c2174220953a7b96ce201ba4fcda14d759d570913c738dd14ebd5f5",
+        "version": "abe4af293f7a4df719f153c45f7ff2b06449351e07e61d63a4d81522bc6dc978",
         "signature": "6ddc55ed86fab0b6d1b5c02771ac34fc3567da2242bec0242f65d015b4fc5fa8",
         "affectsGlobalScope": false
       },
@@ -2617,7 +2617,7 @@
         "affectsGlobalScope": false
       },
       "../src/app.module.ts": {
-        "version": "452a9a14b8f95bc3edcdf807128ddad2f97df58885e40ef0f07d057375f08d24",
+        "version": "24c51cbc34bb28145d234b4d6974fcbbb35122ad5d983df95fd77fe86ee9bb0b",
         "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644",
         "affectsGlobalScope": false
       },
@@ -4834,7 +4834,6 @@
       ],
       "../src/app.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
-        "../node_modules/@types/node/path.d.ts",
         "../src/Models/Dto/todo.Dto.ts",
         "../src/Models/Interface/todo.interface.ts",
         "../src/app.service.ts"
@@ -4842,7 +4841,6 @@
       "../src/app.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/config/index.d.ts",
-        "../node_modules/@nestjs/core/index.d.ts",
         "../node_modules/@nestjs/mongoose/index.d.ts",
         "../node_modules/@nestjs/serve-static/index.d.ts",
         "../node_modules/@types/node/path.d.ts",

@@ -8,6 +8,7 @@ export class UserDto {
     @MaxLength(20, { message: 'the maximum character allowed for a username is 20'})
   readonly userName: string;
 
+  @IsEmail()
   readonly email: string;
 
   @IsString()

@@ -12,6 +12,7 @@ export class AppService {
   async createTodo(todo: TodoDto): Promise<TodoItems> {
 
     const addTodo = await new this.todoModel(todo);
+    console.log(`this are the created data ->`, addTodo);
     return addTodo.save();
   }
 

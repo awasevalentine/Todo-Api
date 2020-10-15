@@ -8,7 +8,6 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { todoSchema } from './Models/Schema/todo.schema';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
-import { APP_INTERCEPTOR } from '@nestjs/core';
 
 
 
@@ -27,10 +26,6 @@ import { APP_INTERCEPTOR } from '@nestjs/core';
  
   ],
   controllers: [AppController],
-  providers: [AppService,
-    {
-      provide: APP_INTERCEPTOR,
-      useClass: CacheInterceptor,
-    },],
+  providers: [AppService],
 })
 export class AppModule {}

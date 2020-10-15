@@ -2,11 +2,20 @@ import { Controller, Get, Param, Res, NotFoundException, Body, Put, Post, Delete
 import { AppService } from './app.service';
 import { TodoItems } from './Models/Interface/todo.interface';
 import { TodoDto } from './Models/Dto/todo.Dto';
-import path from 'path';
 
 @Controller('todo/api')
 export class AppController {
   constructor(private readonly appService: AppService) {}
+
+
+  @Post('/createTodo')
+  async createTodo(@Body() todoDto: TodoDto, @Res() res): Promise<TodoItems[]> {
+    if (!todoDto.userId)
+      return res.json('please specify a user id for this todo', 400);
+    await this.appService.createTodo(todoDto);
+    console.log(`this are the created data ->`, todoDto);
+    return res.json(`'Todo was successfully created!`, 200);
+  }
 
   @Get('/getTodos')
 
@@ -35,15 +44,6 @@ export class AppController {
     return res.json(todoById, 200);
   }
 
-
-
-  @Post('/createTodo')
-  async createTodo(@Body() todoDto: TodoDto, @Res() res): Promise<TodoItems[]> {
-    if (!todoDto.userId)
-      return res.json('please specify a user id for this todo', 400);
-    await this.appService.createTodo(todoDto);
-    return res.json(`'Todo was successfully created!`, 200);
-  }
 
   @Put('/updateTodo/:id')
 
