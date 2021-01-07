@@ -1,10 +1,12 @@
-import { Controller, Get, Param, Res, NotFoundException, Body, Put, Post, Delete, Query } from '@nestjs/common';
+import { Controller, Get, Param, Res, NotFoundException, Body, Put, Post, Delete,  } from '@nestjs/common';
 import { AppService } from './app.service';
 import { TodoItems } from './Models/Interface/todo.interface';
 import { TodoDto } from './Models/Dto/todo.Dto';
 
 @Controller('todo/api')
+
 export class AppController {
+  
   constructor(private readonly appService: AppService) {}
 
 
@@ -17,8 +19,8 @@ export class AppController {
     return res.json(`'Todo was successfully created!`, 200);
   }
 
+  
   @Get('/getTodos')
-
   async getAllTodos(@Res() res ): Promise<TodoItems[]> {
     const data = await this.appService.getTodos();
     return res.json(data, 200);
@@ -35,7 +37,6 @@ export class AppController {
   }
 
   @Get('/getTodo/:id')
-
   async getTodoById(@Res() res, @Param('id') id: string): Promise<TodoItems> {
     const todoById = await this.appService.getTodoById(id);
     if(!todoById) {

@@ -18,7 +18,12 @@ import { join } from 'path';
     }),
     AuthModule,
     ConfigModule.forRoot(),
-    CacheModule.register(),
+    CacheModule.register(
+      {
+        ttl: 1, // seconds
+        max: 10, // maximum number of items in cache
+      }
+    ),
     MongooseModule.forRoot(process.env.MONGODB_URL), 
     MongooseModule.forFeature([{ name: 'Todo', schema:todoSchema }]),
 
